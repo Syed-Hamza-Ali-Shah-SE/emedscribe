@@ -1,169 +1,121 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Clinical Note Generator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Medical-themed icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <style>
-    .bg-animated {
-      background: linear-gradient(-45deg, #2563eb, #1d4ed8, #1e40af, #1e3a8a);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-
-<body class="bg-white text-gray-800 font-sans">
+  <title>eMedScribe – AI-Powered H&P Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    AOS.init({ duration: 800 });
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2E8B57', // green
+            accent: '#4682B4', // blue
+            health: '#C62828' // red
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
   </script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
 
-  <!-- Enhanced Hero Section -->
-  <section class="bg-animated text-white py-24">
-    <div class="container mx-auto text-center px-6" data-aos="zoom-in">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-        Focus on Patients,<br>Not Paperwork
-      </h1>
-      <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-        AI-powered clinical documentation that adapts to your specialty,<br>
-        saving you hours every week.
-      </p>
-      <a href="#contact" class="inline-block bg-white text-blue-600 font-semibold py-4 px-8 rounded-full hover:bg-gray-50 transition-all transform hover:scale-105 shadow-lg">
-        Get Early Access
-      </a>
+  <!-- Sticky Navbar -->
+  <nav class="sticky top-0 z-50 bg-white shadow-md py-4 px-8 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-health">eMedScribe</h1>
+    <div class="space-x-4">
+      <a href="#demo" class="bg-primary text-white px-4 py-2 rounded hover:bg-green-700 transition">Book a Demo</a>
+      <a href="#early" class="border border-primary text-primary px-4 py-2 rounded hover:bg-primary hover:text-white transition">Early Access</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6 bg-gradient-to-br from-health via-primary to-accent text-white">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Let AI Handle the Charts – You Focus on the Patient</h2>
+    <p class="text-xl mb-8 max-w-3xl mx-auto">Automatically generate structured, SNF-compliant H&P notes from hospital records using HIPAA-compliant AI.</p>
+    <div class="space-x-4">
+      <a href="#demo" class="bg-white text-primary px-6 py-3 font-semibold rounded shadow hover:bg-gray-200 transition">Get Early Access</a>
+      <a href="#how" class="border border-white px-6 py-3 font-semibold rounded hover:bg-white hover:text-primary transition">See How It Works</a>
     </div>
   </section>
 
-  <!-- How It Works Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">How It Works</h2>
-        <p class="text-gray-600 text-lg">Transform your workflow in three simple steps</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Enhanced Cards -->
-        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" onclick="showDetails('ehr')">
-          <div class="text-blue-600 text-4xl mb-6">
-            <i class="fas fa-laptop-medical"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Seamless EHR Integration</h3>
-          <p class="text-gray-600">Secure, real-time connection with all major EHR systems</p>
-        </div>
+  <!-- Trust Bar -->
+  <div class="bg-gray-100 text-center py-3 text-sm text-gray-700 font-medium">
+    Used by over 100 physicians across SNFs – Save 20+ hours/month!
+  </div>
 
-        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('mlgpt')">
-          <div class="text-blue-600 text-4xl mb-6">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Smart AI Analysis</h3>
-          <p class="text-gray-600">Advanced NLP understands clinical context perfectly</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200" onclick="showDetails('notes')">
-          <div class="text-blue-600 text-4xl mb-6">
-            <i class="fas fa-file-medical"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Instant Notes</h3>
-          <p class="text-gray-600">Specialty-specific notes ready in seconds</p>
-        </div>
-      </div>
+  <!-- Key Features -->
+  <section class="py-20 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-12 text-health">Key Features</h3>
+    <div class="grid md:grid-cols-2 gap-10">
+      <div><h4 class="text-xl font-semibold mb-2">✅ Automated Chart Summarization</h4><p>Clean, concise H&Ps ready for SNF handoffs.</p></div>
+      <div><h4 class="text-xl font-semibold mb-2">✅ HIPAA-Compliant GPT</h4><p>Built to handle sensitive clinical data securely.</p></div>
+      <div><h4 class="text-xl font-semibold mb-2">✅ Specialty-Aware Templates</h4><p>Templates tailored for IM, physiatry, and more.</p></div>
+      <div><h4 class="text-xl font-semibold mb-2">✅ One-Click Editing & EHR Integration</h4><p>Approve, edit, and export – instantly.</p></div>
     </div>
   </section>
 
-  <!-- Enhanced Testimonials Section -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6" data-aos="fade-right">
-          <h2 class="text-4xl font-bold mb-6">Trusted by Physicians</h2>
-          <div class="space-y-4">
-            <div class="flex items-center">
-              <div class="text-2xl text-blue-600 mr-4">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <p class="text-lg">90% reduction in documentation time</p>
-            </div>
-            <!-- Add more benefits similarly -->
-          </div>
-        </div>
-        <div class="bg-gray-100 p-8 rounded-xl" data-aos="fade-left">
-          <blockquote class="text-xl italic mb-6">
-            “This tool gave me back 2 hours each day to spend with patients.”
-          </blockquote>
-          <div class="flex items-center">
-            <img src="https://via.placeholder.com/60" alt="Dr. Jane Smith" class="rounded-full w-12 h-12">
-            <div class="ml-4">
-              <p class="font-bold">Dr. Jane Smith</p>
-              <p class="text-gray-600">Cardiologist, Mayo Clinic</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- How It Works -->
+  <section id="how" class="bg-gray-50 py-20 px-6">
+    <h3 class="text-3xl font-bold text-center mb-12 text-accent">How It Works</h3>
+    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto text-center">
+      <div><div class="text-4xl mb-2">🔗</div><h4 class="font-semibold">Connect</h4><p>We securely connect to hospital data.</p></div>
+      <div><div class="text-4xl mb-2">📄</div><h4 class="font-semibold">Extract</h4><p>Relevant information is automatically pulled from charts.</p></div>
+      <div><div class="text-4xl mb-2">🧠</div><h4 class="font-semibold">Generate</h4><p>An H&P is created based on your specialty needs.</p></div>
+      <div><div class="text-4xl mb-2">✅</div><h4 class="font-semibold">Finalize</h4><p>You review and export – done in minutes.</p></div>
     </div>
   </section>
 
-  <!-- Enhanced Contact Form -->
-  <section id="contact" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 max-w-2xl">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Start Saving Time Today</h2>
-        <p class="text-gray-600">Schedule a demo or join our early access program</p>
-      </div>
-      <form class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
-        <!-- Add improved form fields -->
-      </form>
-    </div>
+  <!-- Highlight or Visual Demo Placeholder -->
+  <section class="py-20 bg-white px-6 text-center">
+    <h3 class="text-3xl font-bold text-health mb-4">Why Choose eMedScribe?</h3>
+    <p class="max-w-3xl mx-auto mb-10">Physician-designed. Privacy-focused. Time-saving. No more hours spent reading illegible notes or digging through disorganized charts. eMedScribe transforms chaos into clarity.</p>
+    <img src="https://placehold.co/600x300?text=Demo+Video+Placeholder" alt="Demo video" class="mx-auto rounded shadow-lg" />
   </section>
 
-  <!-- Enhanced Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-      <!-- Add footer content -->
+  <!-- Book Your Demo Form -->
+  <section id="demo" class="py-20 bg-primary text-white px-6">
+    <h3 class="text-3xl font-bold text-center mb-8">Book Your Demo</h3>
+    <form action="https://formsubmit.co/naufilsyed@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6 bg-white text-black p-8 rounded shadow-lg">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div>
+        <label class="block mb-2 font-semibold">Name</label>
+        <input type="text" name="name" required class="w-full border rounded px-4 py-2" />
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold">Email</label>
+        <input type="email" name="email" required class="w-full border rounded px-4 py-2" />
+      </div>
+      <div>
+        <label class="block mb-2 font-semibold">Specialty</label>
+        <input type="text" name="specialty" required class="w-full border rounded px-4 py-2" />
+      </div>
+      <button type="submit" class="w-full bg-primary text-white font-semibold py-3 rounded hover:bg-green-700 transition">Request Demo</button>
+    </form>
+  </section>
+
+  <!-- Contact Footer -->
+  <footer class="bg-gray-900 text-white py-10 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+      <div>
+        <h4 class="text-lg font-bold mb-2">Contact</h4>
+        <p>Email: <a href="mailto:contact@aisnfnotes.com" class="underline">contact@aisnfnotes.com</a></p>
+      </div>
+      <div class="text-right space-x-4">
+        <a href="#" class="hover:underline">LinkedIn</a>
+        <a href="#" class="hover:underline">Twitter</a>
+        <a href="#" class="hover:underline">Terms</a>
+        <a href="#" class="hover:underline">Privacy</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Improved Modal -->
-  <div id="detail-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 backdrop-blur-sm">
-    <div class="bg-white rounded-xl p-8 max-w-2xl w-full relative transform transition-all" data-aos="zoom-in">
-      <!-- Modal content -->
-    </div>
-  </div>
-
-<script>
-  // Improved modal handling
-  function showDetails(section) {
-    const modal = document.getElementById('detail-modal');
-    // Add your content logic
-    modal.classList.remove('hidden');
-  }
-
-  // Close modal on outside click
-  window.onclick = function(event) {
-    const modal = document.getElementById('detail-modal');
-    if (event.target === modal) {
-      modal.classList.add('hidden');
-    }
-  }
-</script>
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Clinical Note Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Medical-themed icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <style>
+    .bg-animated {
+      background: linear-gradient(-45deg, #2563eb, #1d4ed8, #1e40af, #1e3a8a);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+  <script>
+    AOS.init({ duration: 800 });
+  </script>
+
+  <!-- Enhanced Hero Section -->
+  <section class="bg-animated text-white py-24">
+    <div class="container mx-auto text-center px-6" data-aos="zoom-in">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+        Focus on Patients,<br>Not Paperwork
+      </h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+        AI-powered clinical documentation that adapts to your specialty,<br>
+        saving you hours every week.
+      </p>
+      <a href="#contact" class="inline-block bg-white text-blue-600 font-semibold py-4 px-8 rounded-full hover:bg-gray-50 transition-all transform hover:scale-105 shadow-lg">
+        Get Early Access
+      </a>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+        <p class="text-gray-600 text-lg">Transform your workflow in three simple steps</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Enhanced Cards -->
+        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" onclick="showDetails('ehr')">
+          <div class="text-blue-600 text-4xl mb-6">
+            <i class="fas fa-laptop-medical"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Seamless EHR Integration</h3>
+          <p class="text-gray-600">Secure, real-time connection with all major EHR systems</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100" onclick="showDetails('mlgpt')">
+          <div class="text-blue-600 text-4xl mb-6">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Smart AI Analysis</h3>
+          <p class="text-gray-600">Advanced NLP understands clinical context perfectly</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200" onclick="showDetails('notes')">
+          <div class="text-blue-600 text-4xl mb-6">
+            <i class="fas fa-file-medical"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Instant Notes</h3>
+          <p class="text-gray-600">Specialty-specific notes ready in seconds</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Testimonials Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6" data-aos="fade-right">
+          <h2 class="text-4xl font-bold mb-6">Trusted by Physicians</h2>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="text-2xl text-blue-600 mr-4">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <p class="text-lg">90% reduction in documentation time</p>
+            </div>
+            <!-- Add more benefits similarly -->
+          </div>
+        </div>
+        <div class="bg-gray-100 p-8 rounded-xl" data-aos="fade-left">
+          <blockquote class="text-xl italic mb-6">
+            “This tool gave me back 2 hours each day to spend with patients.”
+          </blockquote>
+          <div class="flex items-center">
+            <img src="https://via.placeholder.com/60" alt="Dr. Jane Smith" class="rounded-full w-12 h-12">
+            <div class="ml-4">
+              <p class="font-bold">Dr. Jane Smith</p>
+              <p class="text-gray-600">Cardiologist, Mayo Clinic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Contact Form -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-2xl">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">Start Saving Time Today</h2>
+        <p class="text-gray-600">Schedule a demo or join our early access program</p>
+      </div>
+      <form class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
+        <!-- Add improved form fields -->
+      </form>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <!-- Add footer content -->
+    </div>
+  </footer>
+
+  <!-- Improved Modal -->
+  <div id="detail-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-xl p-8 max-w-2xl w-full relative transform transition-all" data-aos="zoom-in">
+      <!-- Modal content -->
+    </div>
+  </div>
+
+<script>
+  // Improved modal handling
+  function showDetails(section) {
+    const modal = document.getElementById('detail-modal');
+    // Add your content logic
+    modal.classList.remove('hidden');
+  }
+
+  // Close modal on outside click
+  window.onclick = function(event) {
+    const modal = document.getElementById('detail-modal');
+    if (event.target === modal) {
+      modal.classList.add('hidden');
+    }
+  }
+</script>
+</body>
+</html>
