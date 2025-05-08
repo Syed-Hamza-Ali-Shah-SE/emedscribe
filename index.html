@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>eMedScribe – AI-Powered H&P Generator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,105 +14,340 @@
           colors: {
             primary: '#2E8B57', // green
             accent: '#4682B4', // blue
-            health: '#C62828' // red
+            health: '#C62828', // red
+            navy: '#0b216f', // navy blue
+            light: '#f9fafb' // light background
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif']
+          },
+          boxShadow: {
+            'soft': '0 10px 25px -5px rgba(0, 0, 0, 0.05)',
+            'feature': '0 15px 35px rgba(0, 0, 0, 0.07)'
           }
         }
       }
     }
   </script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(90deg, #0b216f, #2E8B57);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .feature-card {
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .btn-hover {
+      transition: all 0.3s ease;
+    }
+    .btn-hover:hover {
+      transform: translateY(-2px);
+    }
+    .coming-soon-badge {
+      background: linear-gradient(90deg, #0b216f, #4682B4);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(70, 130, 180, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(70, 130, 180, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(70, 130, 180, 0);
+      }
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Sticky Navbar -->
-  <nav class="sticky top-0 z-50 bg-white shadow-md py-4 px-8 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-health">eMedScribe</h1>
-    <div class="space-x-4">
-      <a href="#demo" class="bg-primary text-white px-4 py-2 rounded hover:bg-green-700 transition">Book a Demo</a>
-      <a href="#early" class="border border-primary text-primary px-4 py-2 rounded hover:bg-primary hover:text-white transition">Early Access</a>
+  <nav class="sticky top-0 z-50 bg-white shadow-md py-3 px-6 md:px-8 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-navy flex items-center">
+      <span class="text-2xl font-heading gradient-text">eMedScribe</span>
+    </h1>
+    <div class="space-x-4 flex items-center">
+      <span class="coming-soon-badge text-white text-xs px-3 py-1 rounded-full mr-2">Coming Soon</span>
+      <a href="#demo" class="bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-green-700 transition btn-hover shadow-md">Book a Demo</a>
+      <a href="#early" class="border-2 border-primary text-primary px-5 py-2 rounded-lg font-medium hover:bg-primary hover:text-white transition btn-hover">Early Access</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="text-center py-20 px-6 bg-gradient-to-br from-health via-primary to-accent text-white">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Let AI Handle the Charts – You Focus on the Patient</h2>
-    <p class="text-xl mb-8 max-w-3xl mx-auto">Automatically generate structured, SNF-compliant H&P notes from hospital records using HIPAA-compliant AI.</p>
-    <div class="space-x-4">
-      <a href="#demo" class="bg-white text-primary px-6 py-3 font-semibold rounded shadow hover:bg-gray-200 transition">Get Early Access</a>
-      <a href="#how" class="border border-white px-6 py-3 font-semibold rounded hover:bg-white hover:text-primary transition">See How It Works</a>
+  <section class="text-center py-24 px-6 bg-gradient-to-br from-navy via-primary to-accent text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI3NjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii4xIiBvZmZzZXQ9IjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNLTM1MS4zOTEgNDQyLjM0N0MtMzE0LjYyOCA1MDkuODIgLTIyMS4yNDkgNDk4LjE3NyAtMTYwLjY4NCA0NzguMzJjMTI5LjM4Ni00Mi4zNzggMTk1LjcwOS0xMTguNjg1IDQxOS4wOTctODIuNzIgMTM0Ljk3NCAyMS43MiAyNTAuMzQxLTMzLjQ4NiAzNDQuMTQ3LTc3LjgzM0M3NzMuOSAxODEuMDAyIDg5Mi42MjkgNjMuMzQ4IDEwMjUuNjQ2IDEyLjEzNmMxMzMuMDE3LTUxLjIxMiAyMjkuMDExLTUwLjYxMyAzMjYuMDU2IDE5LjQ0OCA1My4zMDYgMzguNDg0IDk3LjE5OCAxMDYuMTI2IDEzMS42NzcgMjAyLjkyNiAxLjE4NSAxLjgzMiAyLjY3NSA0LjEzIDQuNDcxIDYuODk0YTc2Mi45ODcgNzYyLjk4NyAwIDAgMSA0NS4wOTEgODcuOTYxYzguNTYyIDE5Ljk3IDEyLjg0NCA0Mi4yNDUgMTIuODQ0IDY2LjgyNkMxNDExLjA0OSA3MzQuNiA5OS4wNjUgNzczLjEwOS0zOS41MjQgNTQyLjExMmE1NDUuNTkgNTQ1LjU5IDAgMCAxLTMyLjQ1Ni01MmMtLjA0OS0uMTc4LS4wOTgtLjM1NS0uMTQ4LS41MzMtMTUuNS0yMi44MjctMzUuMDU2LTQxLjk1LTU4LjY2OS01Ny4zNjgtNDUuNjEtMjkuNzg3LTE0MS4wOTUtMzQuMzkyLTIyMC41OTQgMTAuMTM2eiIgZmlsbD0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')]"></div>
+    <div class="relative z-10">
+      <div class="inline-block bg-white bg-opacity-10 px-6 py-2 rounded-full mb-6">
+        <span class="text-sm font-semibold">Coming Soon - Join the Waitlist</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading">Let AI Handle the Charts <br><span class="text-3xl md:text-4xl">You Focus on the Patient</span></h2>
+      <p class="text-xl mb-10 max-w-3xl mx-auto opacity-90">Automatically generate structured, SNF-compliant H&P notes from hospital records using HIPAA-compliant AI.</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <a href="#demo" class="bg-white text-primary px-8 py-4 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition btn-hover">Get Early Access</a>
+        <a href="#how" class="border-2 border-white px-8 py-4 font-semibold rounded-lg hover:bg-white hover:text-primary transition btn-hover">See How It Works</a>
+      </div>
     </div>
   </section>
 
-  <!-- Trust Bar -->
-  <div class="bg-gray-100 text-center py-3 text-sm text-gray-700 font-medium">
-    Used by over 100 physicians across SNFs – Save 20+ hours/month!
+  <!-- Coming Soon Banner -->
+  <div class="bg-light text-center py-4 text-gray-700 font-medium">
+    <div class="flex justify-center items-center">
+      <div class="coming-soon-badge px-3 py-1 rounded-full mr-3">
+        <span class="text-white text-xs">BETA</span>
+      </div>
+      <span>eMedScribe is currently in development - Sign up for early access</span>
+    </div>
   </div>
 
   <!-- Key Features -->
-  <section class="py-20 px-6 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-12 text-health">Key Features</h3>
+  <section class="py-24 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-16 font-heading relative">
+      <span class="gradient-text">Key Features</span>
+      <div class="absolute w-20 h-1 bg-primary rounded-full bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
+    </h3>
     <div class="grid md:grid-cols-2 gap-10">
-      <div><h4 class="text-xl font-semibold mb-2">✅ Automated Chart Summarization</h4><p>Clean, concise H&Ps ready for SNF handoffs.</p></div>
-      <div><h4 class="text-xl font-semibold mb-2">✅ HIPAA-Compliant GPT</h4><p>Built to handle sensitive clinical data securely.</p></div>
-      <div><h4 class="text-xl font-semibold mb-2">✅ Specialty-Aware Templates</h4><p>Templates tailored for IM, physiatry, and more.</p></div>
-      <div><h4 class="text-xl font-semibold mb-2">✅ One-Click Editing & EHR Integration</h4><p>Approve, edit, and export – instantly.</p></div>
+      <div class="bg-light p-6 rounded-xl shadow-feature feature-card">
+        <div class="flex items-start">
+          <div class="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-2 text-navy">Automated Chart Summarization</h4>
+            <p class="text-gray-600">Clean, concise H&Ps ready for SNF handoffs in minutes instead of hours.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light p-6 rounded-xl shadow-feature feature-card">
+        <div class="flex items-start">
+          <div class="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-2 text-navy">HIPAA-Compliant GPT</h4>
+            <p class="text-gray-600">Built to handle sensitive clinical data securely with encryption at every step.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light p-6 rounded-xl shadow-feature feature-card">
+        <div class="flex items-start">
+          <div class="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-2 text-navy">Specialty-Aware Templates</h4>
+            <p class="text-gray-600">Templates tailored for Internal Medicine, Physiatry, and more specialties.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light p-6 rounded-xl shadow-feature feature-card">
+        <div class="flex items-start">
+          <div class="bg-primary bg-opacity-10 p-3 rounded-lg mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-2 text-navy">One-Click Editing & EHR Integration</h4>
+            <p class="text-gray-600">Approve, edit, and export to your EHR – instantly and seamlessly.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section id="how" class="bg-gray-50 py-20 px-6">
-    <h3 class="text-3xl font-bold text-center mb-12 text-accent">How It Works</h3>
-    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto text-center">
-      <div><div class="text-4xl mb-2">🔗</div><h4 class="font-semibold">Connect</h4><p>We securely connect to hospital data.</p></div>
-      <div><div class="text-4xl mb-2">📄</div><h4 class="font-semibold">Extract</h4><p>Relevant information is automatically pulled from charts.</p></div>
-      <div><div class="text-4xl mb-2">🧠</div><h4 class="font-semibold">Generate</h4><p>An H&P is created based on your specialty needs.</p></div>
-      <div><div class="text-4xl mb-2">✅</div><h4 class="font-semibold">Finalize</h4><p>You review and export – done in minutes.</p></div>
+  <section id="how" class="bg-light py-24 px-6 relative">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-16 font-heading relative">
+        <span class="gradient-text">How It Works</span>
+        <div class="absolute w-20 h-1 bg-accent rounded-full bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
+      </h3>
+      <div class="grid md:grid-cols-4 gap-6 text-center">
+        <div class="bg-white p-8 rounded-xl shadow-soft feature-card">
+          <div class="bg-accent bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+          </div>
+          <h4 class="font-semibold text-lg mb-3 text-navy">Connect</h4>
+          <p class="text-gray-600">We securely connect to hospital data through our HIPAA-compliant interface.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-soft feature-card">
+          <div class="bg-accent bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h4 class="font-semibold text-lg mb-3 text-navy">Extract</h4>
+          <p class="text-gray-600">Relevant information is automatically identified and extracted from charts.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-soft feature-card">
+          <div class="bg-accent bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h4 class="font-semibold text-lg mb-3 text-navy">Generate</h4>
+          <p class="text-gray-600">An H&P is created based on your specialty needs and preferences.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-soft feature-card">
+          <div class="bg-accent bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h4 class="font-semibold text-lg mb-3 text-navy">Finalize</h4>
+          <p class="text-gray-600">You review and export directly to your EHR – done in minutes not hours.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Highlight or Visual Demo Placeholder -->
-  <section class="py-20 bg-white px-6 text-center">
-    <h3 class="text-3xl font-bold text-health mb-4">Why Choose eMedScribe?</h3>
-    <p class="max-w-3xl mx-auto mb-10">Physician-designed. Privacy-focused. Time-saving. No more hours spent reading illegible notes or digging through disorganized charts. eMedScribe transforms chaos into clarity.</p>
-    <img src="https://placehold.co/600x300?text=Demo+Video+Placeholder" alt="Demo video" class="mx-auto rounded shadow-lg" />
-  </section>
+  <!-- Why Choose eMedScribe Section (Replacing the Video Placeholder) -->
+  <section class="py-24 bg-white px-6">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl font-bold mb-6 text-center font-heading relative inline-block">
+        <span class="gradient-text">Why Choose eMedScribe?</span>
+        <div class="absolute w-20 h-1 bg-health rounded-full bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
+      </h3>
+      
+      <div class="grid md:grid-cols-3 gap-8 mt-16">
+        <div class="bg-light p-6 rounded-xl shadow-feature">
+          <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-navy">Save Valuable Time</h4>
+          <p class="text-gray-600">Cut hours from your documentation process, allowing you to focus more on patient care and less on paperwork.</p>
+        </div>
+        
+        <div class="bg-light p-6 rounded-xl shadow-feature">
+          <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-navy">Enhanced Data Security</h4>
+          <p class="text-gray-600">Our platform is being built from the ground up with HIPAA compliance and data security as top priorities.</p>
+        </div>
+        
+        <div class="bg-light p-6 rounded-xl shadow-feature">
+          <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-navy">Physician-Designed</h4>
+          <p class="text-gray-600">Created by physicians who understand the unique challenges of SNF documentation and clinical workflows.</p>
+        </div>
+      </div>
 
-  <!-- Book Your Demo Form -->
-  <section id="demo" class="py-20 bg-primary text-white px-6">
-    <h3 class="text-3xl font-bold text-center mb-8">Book Your Demo</h3>
-    <form action="https://formsubmit.co/naufilsyed@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6 bg-white text-black p-8 rounded shadow-lg">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <div>
-        <label class="block mb-2 font-semibold">Name</label>
-        <input type="text" name="name" required class="w-full border rounded px-4 py-2" />
+      <div class="grid md:grid-cols-2 gap-8 mt-10">
+        <div class="bg-light p-6 rounded-xl shadow-feature">
+          <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-navy">Customizable AI Templates</h4>
+          <p class="text-gray-600">AI-generated notes that adapt to your specialty and personal documentation style, ensuring consistency and completeness.</p>
+        </div>
+        
+        <div class="bg-light p-6 rounded-xl shadow-feature">
+          <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-navy">Streamlined Workflow</h4>
+          <p class="text-gray-600">Eliminate redundant tasks with one-click editing and seamless EHR integration, transforming chaos into clarity.</p>
+        </div>
       </div>
-      <div>
-        <label class="block mb-2 font-semibold">Email</label>
-        <input type="email" name="email" required class="w-full border rounded px-4 py-2" />
+      
+      <div class="mt-16 bg-light p-8 rounded-xl shadow-lg text-center">
+        <h4 class="text-2xl font-bold mb-4 text-navy">Ready to Transform Your Documentation Process?</h4>
+        <p class="text-lg text-gray-700 mb-6">eMedScribe is currently in development with our team of physicians and AI experts. Be among the first to experience this revolutionary tool when it launches.</p>
+        <a href="#demo" class="inline-block bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition shadow-md btn-hover">Join the Waitlist</a>
       </div>
-      <div>
-        <label class="block mb-2 font-semibold">Specialty</label>
-        <input type="text" name="specialty" required class="w-full border rounded px-4 py-2" />
+    </div>
+  </section>
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <div class="inline-block bg-white bg-opacity-20 px-4 py-1 rounded-full mb-6">
+        <span class="text-sm">Early Access Program</span>
       </div>
-      <button type="submit" class="w-full bg-primary text-white font-semibold py-3 rounded hover:bg-green-700 transition">Request Demo</button>
-    </form>
+      <h3 class="text-3xl font-bold mb-8 font-heading">Join the Waitlist</h3>
+      <form action="https://formsubmit.co/naufilsyed@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6 bg-white text-black p-10 rounded-xl shadow-2xl">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div>
+          <label class="block mb-2 font-semibold text-gray-700">Name</label>
+          <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-gray-700">Email</label>
+          <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-gray-700">Specialty</label>
+          <input type="text" name="specialty" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 rounded-lg hover:opacity-90 transition shadow-md transform hover:-translate-y-1">Get Early Access</button>
+        <p class="text-xs text-gray-500 mt-4">By submitting this form, you'll be added to our waitlist and receive updates about our launch.</p>
+      </form>
+    </div>
   </section>
 
   <!-- Contact Footer -->
-  <footer class="bg-gray-900 text-white py-10 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-      <div>
-        <h4 class="text-lg font-bold mb-2">Contact</h4>
-        <p>Email: <a href="mailto:contact@aisnfnotes.com" class="underline">contact@aisnfnotes.com</a></p>
+  <footer class="bg-navy text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+        <div class="mb-6 md:mb-0">
+          <span class="text-2xl font-bold gradient-text">eMedScribe</span>
+          <div class="mt-2 flex items-center">
+            <span class="bg-primary bg-opacity-20 text-primary text-xs px-3 py-1 rounded-full">Coming Soon</span>
+          </div>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-primary transition">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="hover:text-primary transition">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="text-right space-x-4">
-        <a href="#" class="hover:underline">LinkedIn</a>
-        <a href="#" class="hover:underline">Twitter</a>
-        <a href="#" class="hover:underline">Terms</a>
-        <a href="#" class="hover:underline">Privacy</a>
+      <hr class="border-gray-700 mb-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+          <p class="mb-2">Email: <a href="mailto:contact@aisnfnotes.com" class="text-primary hover:underline">contact@aisnfnotes.com</a></p>
+          <p>We're building the future of clinical documentation. Join us on this journey.</p>
+        </div>
+        <div class="md:text-right">
+          <h4 class="text-lg font-bold mb-4 md:text-right">Quick Links</h4>
+          <div class="flex flex-col md:items-end space-y-2">
+            <a href="#" class="hover:text-primary transition">LinkedIn</a>
+            <a href="#" class="hover:text-primary transition">Twitter</a>
+            <a href="#" class="hover:text-primary transition">Terms of Service</a>
+            <a href="#" class="hover:text-primary transition">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12 text-sm text-gray-400">
+        &copy; 2023 eMedScribe. All rights reserved.
       </div>
     </div>
   </footer>
