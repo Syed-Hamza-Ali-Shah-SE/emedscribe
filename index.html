@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>eMedScribe – AI-Powered H&P Generator</title>
+  <title>eMedScribe</title>
+  <link rel="icon" href="logo.png" type="image/png" sizes="96x96">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -70,6 +71,7 @@
   <!-- Sticky Navbar -->
   <nav class="sticky top-0 z-50 bg-white shadow-md py-3 px-6 md:px-8 flex justify-between items-center">
     <h1 class="text-xl font-bold text-navy flex items-center">
+      <img src="logo.png" alt="eMedScribe Logo" class="h-12 w-16 mr-0.5"> <!-- Add logo image here -->
       <span class="text-2xl font-heading gradient-text">eMedScribe</span>
     </h1>
     <div class="space-x-4 flex items-center">
@@ -209,7 +211,7 @@
             </svg>
           </div>
           <h4 class="font-semibold text-lg mb-3 text-navy">Finalize</h4>
-          <p class="text-gray-600">You review and export directly to your EHR – done in minutes not hours.</p>
+          <p class="text-gray-600">You review and export directly to your EHR – done in seconds.</p>
         </div>
       </div>
     </div>
@@ -222,7 +224,7 @@
         <span class="gradient-text">Why Choose eMedScribe?</span>
         <div class="absolute w-20 h-1 bg-health rounded-full bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
       </h3>
-      
+
       <div class="grid md:grid-cols-3 gap-8 mt-16">
         <div class="bg-light p-6 rounded-xl shadow-feature">
           <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
@@ -233,7 +235,7 @@
           <h4 class="text-xl font-semibold mb-3 text-navy">Save Valuable Time</h4>
           <p class="text-gray-600">Cut hours from your documentation process, allowing you to focus more on patient care and less on paperwork.</p>
         </div>
-        
+
         <div class="bg-light p-6 rounded-xl shadow-feature">
           <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -243,7 +245,7 @@
           <h4 class="text-xl font-semibold mb-3 text-navy">Enhanced Data Security</h4>
           <p class="text-gray-600">Our platform is being built from the ground up with HIPAA compliance and data security as top priorities.</p>
         </div>
-        
+
         <div class="bg-light p-6 rounded-xl shadow-feature">
           <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -265,7 +267,7 @@
           <h4 class="text-xl font-semibold mb-3 text-navy">Customizable AI Templates</h4>
           <p class="text-gray-600">AI-generated notes that adapt to your specialty and personal documentation style, ensuring consistency and completeness.</p>
         </div>
-        
+
         <div class="bg-light p-6 rounded-xl shadow-feature">
           <div class="bg-navy bg-opacity-10 p-4 rounded-full inline-flex mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -276,7 +278,7 @@
           <p class="text-gray-600">Eliminate redundant tasks with one-click editing and seamless EHR integration, transforming chaos into clarity.</p>
         </div>
       </div>
-      
+
       <div class="mt-16 bg-light p-8 rounded-xl shadow-lg text-center">
         <h4 class="text-2xl font-bold mb-4 text-navy">Ready to Transform Your Documentation Process?</h4>
         <p class="text-lg text-gray-700 mb-6">eMedScribe is currently in development with our team of physicians and AI experts. Be among the first to experience this revolutionary tool when it launches.</p>
@@ -284,73 +286,135 @@
       </div>
     </div>
   </section>
-    <div class="relative z-10 max-w-5xl mx-auto text-center">
-      <div class="inline-block bg-white bg-opacity-20 px-4 py-1 rounded-full mb-6">
-        <span class="text-sm">Early Access Program</span>
+
+  <!-- Join the Waitlist Section (Formerly "Book Your Demo") -->
+  <section id="demo" class="py-24 bg-gradient-to-r from-primary to-accent text-white px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI3NjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii4xIiBvZmZzZXQ9IjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMTI3Mi45MTMgNzM1LjgxNGMtNDMuMjMxIDExMi41NDItMzY5LjM3NiA1Mi4zNTQtNzU5LjctMTI2LjA4M1MtNDMuNzI3IDMyOS40NjItLjQ5NiAyMTYuOTJzMjkwLjA3OS0xNzMuNDUgNjgwLjQwMyA1LjA2MiA2MzYuMjM3IDQwMi4yOSA1OTMuMDA2IDUxNC44M3oiIGZpbGw9InVybCgjYSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==')]"></div>
+
+    <!-- Decorative elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full"></div>
+    <div class="absolute bottom-10 right-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
+    <div class="absolute top-1/4 right-1/4 w-12 h-12 bg-white bg-opacity-5 rounded-full"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <!-- Left side with heading -->
+        <div class="flex-1 text-left md:pr-10">
+          <h3 class="text-4xl font-bold mb-4 font-heading">Be the First to Experience eMedScribe</h3>
+          <p class="text-lg opacity-90 mb-6">Join our exclusive group of early adopters and help shape the future of medical documentation.</p>
+
+          <!-- Benefits list -->
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Priority access when we launch</span>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Exclusive early-bird pricing</span>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Opportunity to provide feedback on features</span>
+            </div>
+          </div>
+
+          <!-- Countdown-style element -->
+          <div class="hidden md:block">
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 inline-flex items-center">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Limited spots available in our early access program</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side with form -->
+        <div class="flex-1">
+          <form action="https://formsubmit.co/naufilsyed@gmail.com" method="POST" class="bg-white text-black p-8 rounded-xl shadow-2xl relative">
+            <div class="absolute -top-4 -right-4 bg-accent text-white text-xs px-4 py-1 rounded-full font-bold uppercase tracking-wide shadow-lg">
+              Early Access
+            </div>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <h4 class="text-2xl font-bold mb-6 text-navy">Join the Waitlist</h4>
+
+            <div class="space-y-5">
+              <div>
+                <label class="block mb-2 font-medium text-gray-700">Full Name</label>
+                <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" placeholder="Dr. Jane Smith" />
+              </div>
+
+              <div>
+                <label class="block mb-2 font-medium text-gray-700">Email Address</label>
+                <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" placeholder="jane.smith@example.com" />
+              </div>
+
+              <div>
+                <label class="block mb-2 font-medium text-gray-700">Medical Specialty</label>
+                <input type="text" name="specialty" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" placeholder="Internal Medicine" />
+              </div>
+
+              <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 rounded-lg hover:opacity-90 transition shadow-md transform hover:-translate-y-1">
+                Reserve My Spot
+              </button>
+
+              <p class="text-xs text-gray-500 mt-2 text-center">
+                We respect your privacy and will never share your information.
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-      <h3 class="text-3xl font-bold mb-8 font-heading">Join the Waitlist</h3>
-      <form action="https://formsubmit.co/naufilsyed@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6 bg-white text-black p-10 rounded-xl shadow-2xl">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <div>
-          <label class="block mb-2 font-semibold text-gray-700">Name</label>
-          <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
-        </div>
-        <div>
-          <label class="block mb-2 font-semibold text-gray-700">Email</label>
-          <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
-        </div>
-        <div>
-          <label class="block mb-2 font-semibold text-gray-700">Specialty</label>
-          <input type="text" name="specialty" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" />
-        </div>
-        <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 rounded-lg hover:opacity-90 transition shadow-md transform hover:-translate-y-1">Get Early Access</button>
-        <p class="text-xs text-gray-500 mt-4">By submitting this form, you'll be added to our waitlist and receive updates about our launch.</p>
-      </form>
     </div>
-  </section>
+
 
   <!-- Contact Footer -->
-  <footer class="bg-navy text-white py-12 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-        <div class="mb-6 md:mb-0">
-          <span class="text-2xl font-bold gradient-text">eMedScribe</span>
-          <div class="mt-2 flex items-center">
-            <span class="bg-primary bg-opacity-20 text-primary text-xs px-3 py-1 rounded-full">Coming Soon</span>
-          </div>
-        </div>
-        <div class="flex space-x-6">
-          <a href="#" class="hover:text-primary transition">
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="#" class="hover:text-primary transition">
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-          </a>
-        </div>
+
+  <!-- Contact Footer -->
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI3NjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJhIj48c3RvcCBzdG9wLWNvbG9yPSIjZmZmIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIxMDAlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHBhdGggZD0iTTEyNzIuOTEzIDczNS44MTRjLTQzLjIzMSAxMTIuNTQyLTM2OS4zNzYgNTIuMzU0LTc1OS43LTEyNi4wODNTLTQzLjcyNyAzMjkuNDYyLS40OTYgMjE2LjkyczI5MC4wNzktMTczLjQ1IDY4MC40MDMgNS4wNjIgNjM2LjIzNyA0MDIuMjkgNTkzLjAwNiA1MTQuODN6IiBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')] opacity-50"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10 text-center">
+      <!-- Logo and badge -->
+      <div class="flex flex-col items-center justify-center mb-8">
+
       </div>
-      <hr class="border-gray-700 mb-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h4 class="text-lg font-bold mb-4">Contact Us</h4>
-          <p class="mb-2">Email: <a href="mailto:contact@aisnfnotes.com" class="text-primary hover:underline">contact@aisnfnotes.com</a></p>
-          <p>We're building the future of clinical documentation. Join us on this journey.</p>
+
+      <!-- Divider with accent -->
+      <div class="flex items-center justify-center mb-8">
+        <div class="w-full max-w-xs h-px bg-white bg-opacity-20"></div>
+        <div class="px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h10m-8 4h6" />
+          </svg>
         </div>
-        <div class="md:text-right">
-          <h4 class="text-lg font-bold mb-4 md:text-right">Quick Links</h4>
-          <div class="flex flex-col md:items-end space-y-2">
-            <a href="#" class="hover:text-primary transition">LinkedIn</a>
-            <a href="#" class="hover:text-primary transition">Twitter</a>
-            <a href="#" class="hover:text-primary transition">Terms of Service</a>
-            <a href="#" class="hover:text-primary transition">Privacy Policy</a>
-          </div>
-        </div>
+        <div class="w-full max-w-xs h-px bg-white bg-opacity-20"></div>
       </div>
-      <div class="text-center mt-12 text-sm text-gray-400">
-        &copy; 2023 eMedScribe. All rights reserved.
+
+      <!-- Contact Info -->
+      <div class="mb-8">
+        <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+        <p class="mb-2">Email: <a href="mailto:support@emedscribe.com" class="text-white hover:text-accent transition border-b border-white border-opacity-50 hover:border-accent">support@emedscribe.com</a></p>
+        <p class="text-white text-opacity-90 max-w-md mx-auto">We're building the future of clinical documentation. Join us on this journey.</p>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-sm text-white text-opacity-60">
+        &copy; 2025 eMedScribe. All rights reserved.
       </div>
     </div>
   </footer>
-
 </body>
 </html>
